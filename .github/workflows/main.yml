@@ -7,9 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Get Popular Fonts
+      - name: Get Report
         run: |
           npm install -g lighthouse
+          npm set prefix ~/.npm
+          printf "PATH=\"$HOME/.npm/bin:$PATH\"" >> ~/.bashrc
+          printf "PATH=\"./node_modules/.bin:$PATH\"" >> ~/.bashrc
           lighthouse https://raybo.org/githubchallenge/
