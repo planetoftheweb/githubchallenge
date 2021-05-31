@@ -21,4 +21,4 @@ jobs:
       - name: Get Report
         run: |
           npm install -g accessibility-checker
-          achecker
+          achecker ./docs/index.html
