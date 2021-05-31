@@ -15,5 +15,5 @@ jobs:
       - name: Get Report
         run: |
           npm install -g lighthouse
-          lighthouse https://raybo.org/githubchallenge --chrome-flags="--headless" --only-categories accessibility --list-all-audits true
+          lighthouse https://raybo.org/githubchallenge --chrome-flags="--headless" --only-categories accessibility
           
