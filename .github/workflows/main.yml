@@ -14,5 +14,5 @@ jobs:
           node-version: '14'
       - name: Get Report
         run: |
-          npm install -g accessibility-checker
-          achecker ./docs/index.html
+          npm install -g lighthouse
+          lighthouse https://raybo.org/githubchallenge --chrome-flags="--headless"
