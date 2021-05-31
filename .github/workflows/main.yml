@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
         
     steps:
       - name: Checkout
@@ -20,5 +20,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Get Report
         run: |
-          npm install -g lighthouse
-          lighthouse https://raybo.org/githubchallenge/
+          npm install -g accessibility-checker
+          achecker
