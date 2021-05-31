@@ -11,8 +11,11 @@ jobs:
       - name: Get Report
         run: |
           npm set prefix ~/.npm
-          printf "PATH=\"$HOME/.npm/bin:$PATH\"" >> ~/.bashrc
-          printf "PATH=\"./node_modules/.bin:$PATH\"" >> ~/.bashrc
-          cat ~/.bashrc
+          printf "PATH=\"$HOME/.npm/bin:$PATH\"" >> ~/.bash_aliases
+          printf "PATH=\"./node_modules/.bin:$PATH\"" >> ~/.bash_aliases
+          echo "------"
+          cat ~/.bash_aliases
+          echo "------"
           npm install -g lighthouse
+          echo "------"
           lighthouse https://raybo.org/githubchallenge/
