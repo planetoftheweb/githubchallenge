@@ -10,12 +10,16 @@ jobs:
     steps:
       - name: Get Report
         run: |
+          echo "\n\n--- Set Prefix ---\n"
           npm set prefix ~/.npm
+          echo "\n\n--- Set Paths ---\n"
           printf "PATH=\"$HOME/.npm/bin:$PATH\"" >> ~/.bash_aliases
           printf "PATH=\"./node_modules/.bin:$PATH\"" >> ~/.bash_aliases
-          echo "------"
+          echo "\n\n--- OUTPUT bash_aliases ---\n"
           cat ~/.bash_aliases
-          echo "------"
+          echo "\n\n--- Install Lighthouse---\n"
           npm install -g lighthouse
-          echo "------"
+          echo "\n\n--- Output NPM Modules ---\n"
+          npm ls
+          echo "------\n"
           lighthouse https://raybo.org/githubchallenge/
