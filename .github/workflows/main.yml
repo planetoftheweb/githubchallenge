@@ -8,18 +8,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Get Report
         run: |
           echo -e  "\n\n--- Set Prefix ---\n"
           npm set prefix ~/.npm
+          
           echo -e  "\n\n--- Set Paths ---\n"
           echo "PATH=\"$HOME/.npm/bin:$PATH\"" >> ~/.bash_aliases
           echo "PATH=\"./node_modules/.bin:$PATH\"" >> ~/.bash_aliases
+          
           echo -e  "\n\n--- OUTPUT bash_aliases ---\n"
           cat ~/.bash_aliases
+          
           echo -e  "\n\n--- Install Lighthouse NPM module ---\n"
           npm install -g lighthouse
+          
           echo -e  "\n\n--- Output NPM Modules ---\n"
           npm ls — depth=0
-          echo -e "------\n"
+          echo -e "\n\n--- Run Lighthouse---\n"
           lighthouse https://raybo.org/githubchallenge/
