@@ -15,5 +15,5 @@ jobs:
       - name: Get Report
         run: |
           npm install -g lighthouse
-          lighthouse https://raybo.org/githubchallenge/ --chrome-flags="--headless" --only-categories="Performance" --output="json" --output-path="./report.json"
+          lighthouse https://raybo.org/githubchallenge/index.html --chrome-flags="--headless" --only-categories="Performance" --output="json" --output-path="./report.json"
           cat ./report.json
